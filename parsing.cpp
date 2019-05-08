@@ -9,7 +9,7 @@ struct chloe
 {
 	int number; //command order number
 	string name; //name of command
-	int prereq[]; //for now a list of the numbers for the prerequisites that will be used to determine
+	int prereq[2]; //for now a list of the numbers for the prerequisites that will be used to determine
 	int prereqcounter;
 	double time; //time value
 	
@@ -38,6 +38,7 @@ struct chloe
 		}
 		cout << endl;
 		cout << "Time taken: " << time << endl;
+		cout << endl;
 	}
 };
 
@@ -66,8 +67,9 @@ void parse(chloe * &tail) {
 							istringstream ss3(temp.substr(0,1));
 							ss3 >> tail->prereq[0];
 							istringstream ss4(temp.substr(2));
-							ss2 >> tail->prereq[1];	
+							ss4 >> tail->prereq[1];	
 							tail->prereqcounter = 2;
+							break;
 						}
 						else if(i+1 == temp.size()) {	
 							ss2 >> tail->prereq[0];
